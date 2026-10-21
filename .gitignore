@@ -28,6 +28,10 @@ _extract*.py
 _srs_*.txt
 *.log
 
+# --- Dokumen tugas: disimpan lokal saja, tidak untuk repo publik ---
+_SRS_*.pdf
+*.docx
+
 # --- Editor & sistem operasi ---
 .vscode/
 .idea/
