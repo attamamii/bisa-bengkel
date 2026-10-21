@@ -1,0 +1,36 @@
+# =========================================================================
+#  .gitignore — file yang TIDAK boleh ikut masuk repository
+# =========================================================================
+
+# --- Rahasia: JANGAN pernah di-commit ---
+.env
+.env.*
+!.env.example
+
+# --- Database lokal & hasil backup ---
+*.db
+*.sqlite
+*.sqlite3
+backups/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# --- Alat bantu lokal (jangan di-push, ukurannya besar) ---
+.tmp-verify/
+_extract*.py
+_srs_*.txt
+*.log
+
+# --- Editor & sistem operasi ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
