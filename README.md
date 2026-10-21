@@ -127,6 +127,9 @@ Tubes_ippl_bisa/
 │     ├─ ui.js               # ikon, modal, toast, formatter, loading
 │     └─ pages/              # landing, auth, customer, mechanic, admin, nota
 ├─ templates/index.html
+├─ tests/
+│  ├─ smoke.py               # 25 uji alur end-to-end API
+│  └─ gen_schema.py          # bangkitkan schema_mysql.sql dari model
 └─ scripts/
    ├─ backup.py              # backup SQLite/MySQL harian (NFR-13)
    ├─ backup.bat
@@ -224,6 +227,13 @@ Ornamen tidak berhenti di landing page — dipakai konsisten di dalam aplikasi:
 | Beranda customer `#/customer` | baris chip **keluhan cepat** berikon bengkel (oli, ban, rem, kelistrikan, AC, tune up) yang sekali klik mengisi kolom keluhan |
 | Papan mekanik `#/mekanik` | hazard tape sebagai pembatas header papan tugas |
 | Loading state | ban berputar, bukan spinner generik |
+
+### Menjalankan uji cepat
+
+```powershell
+python tests\smoke.py        # 25 pemeriksaan alur end-to-end (tanpa perlu server hidup)
+python tests\gen_schema.py   # regenerasi schema_mysql.sql dari model SQLAlchemy
+```
 
 ### Backup manual & penjadwalan
 

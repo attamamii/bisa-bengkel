@@ -1,8 +1,16 @@
-"""Uji alur end-to-end API (temporary, dihapus setelah verifikasi)."""
+"""Uji alur end-to-end API BISA (25 pemeriksaan).
+
+Jalankan dari folder mana pun:
+    python tests/smoke.py
+"""
 
 import json
 import os
 import sys
+from pathlib import Path
+
+# Agar `app` bisa diimpor walau skrip dijalankan dari dalam folder tests.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 os.environ["DB_ENGINE"] = "sqlite"
 os.environ["AUTO_SEED"] = "true"

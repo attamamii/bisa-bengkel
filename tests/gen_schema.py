@@ -1,6 +1,17 @@
-"""Menghasilkan DDL MariaDB/MySQL dari model SQLAlchemy (temporary helper)."""
+"""Menghasilkan DDL MariaDB/MySQL dari model SQLAlchemy.
+
+Hasil disimpan ke `schema_mysql.sql` di root proyek.
+Jalankan dari folder mana pun:
+    python tests/gen_schema.py
+"""
 
 import os
+import sys
+from pathlib import Path
+
+# Agar `app` bisa diimpor walau skrip dijalankan dari dalam folder tests.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 os.environ["DB_ENGINE"] = "sqlite"
 
@@ -19,7 +30,7 @@ with app.app_context():
         ddl = ddl.rstrip().rstrip(";") + " ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
         out.append(ddl)
 
-with open("schema_mysql.sql", "w", encoding="utf-8") as fh:
+with open(PROJECT_ROOT / "schema_mysql.sql", "w", encoding="utf-8") as fh:
     fh.write(
         "-- Skema BISA untuk MariaDB/MySQL\n"
         "-- Dibuat otomatis dari model SQLAlchemy. Jalankan setelah database `bisa` dibuat.\n\n"
